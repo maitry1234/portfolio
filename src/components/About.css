@@ -1,0 +1,124 @@
+.about {
+  background-image: url("../assets/about-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 40px;
+  padding: 40px 20px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  overflow: hidden; /* Add this to clip overflow and respect border-radius */
+}
+
+.about-content {
+  width: 100%;
+  z-index: 2;
+}
+
+.about h2 {
+  color: #ff2c2c;
+  font-family: "Caveat", cursive;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.about p {
+  line-height: 1.7;
+  color: #333;
+  text-align: left;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.about span {
+  color: #ff2c2c;
+  font-weight: 600;
+}
+
+.about-profile {
+  display: none;
+}
+
+/* Tablet - 768px and up */
+@media (min-width: 768px) {
+  .about {
+    padding: 60px 40px;
+  }
+
+  .about-content {
+    width: 60%;
+  }
+
+  .about h2 {
+    font-size: 44px;
+  }
+
+  .about p {
+    font-size: 17px;
+  }
+
+  .about-profile {
+    display: block;
+    position: absolute;
+    right: 20px;
+    bottom: 0;
+    height: 380px;
+    z-index: 3;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
+    animation: wave 3s ease-in-out infinite;
+  }
+}
+
+/* Desktop - 1024px and up */
+@media (min-width: 1024px) {
+  .about {
+    padding: 80px 80px;
+  }
+
+  .about-content {
+    width: 55%;
+  }
+
+  .about h2 {
+    font-size: 52px;
+  }
+
+  .about p {
+    font-size: 18px;
+  }
+
+  .about-profile {
+    right: 10px;
+    height: 500px;
+  }
+}
+
+/* Large Desktop - 1440px and up */
+@media (min-width: 1440px) {
+  .about {
+    padding: 80px 100px;
+  }
+
+  .about-profile {
+    right: -5px; /* Changed from -5px to prevent overflow */
+    height: 550px;
+  }
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-1deg);
+  }
+  75% {
+    transform: rotate(1deg);
+  }
+}

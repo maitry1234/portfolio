@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap");
+
+.hero {
+  position: relative;
+  padding: 100px;
+  background: #fff;
+  border-radius: 40px;
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+/* Decorative elements */
+.hero-decorations {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Top right decorative lines */
+.deco-lines.top-right {
+  position: absolute;
+  top: 60px;
+  right: 80px;
+  display: flex;
+  gap: 4px;
+}
+
+.deco-lines.top-right span {
+  display: block;
+  width: 3px;
+  height: 50px;
+  background: #ff2c2c;
+  border-radius: 2px;
+}
+
+.deco-lines.top-right span:first-child {
+  transform: rotate(20deg);
+}
+
+.deco-lines.top-right span:last-child {
+  transform: rotate(-20deg);
+}
+
+/* Top left decorative circle */
+.deco-circle.top-left {
+  position: absolute;
+  top: 80px;
+  left: 80px;
+  width: 70px;
+  height: 70px;
+  border: 2px solid #e5e5e5;
+  border-radius: 50%;
+}
+
+/* Animated gradient background */
+.hero-gradient {
+  position: absolute;
+  bottom: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 44, 44, 0.08) 0%,
+    rgba(255, 44, 44, 0.02) 50%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-50px, -50px) scale(1.1);
+  }
+}
+
+/* Main content */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.hero h1 {
+  font-size: 72px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0 0 24px 0;
+}
+
+.text-normal {
+  font-weight: 400;
+  color: #1a1a1a;
+}
+
+.hello {
+  font-family: "Caveat", cursive;
+  color: #ff2c2c;
+  font-size: 80px;
+  font-weight: 700;
+  display: inline-block;
+  animation: wave 2s ease-in-out infinite;
+}
+
+.name {
+  font-family: "Caveat", cursive;
+  font-weight: 700;
+  color: #1a1a1a;
+  font-size: 80px;
+  position: relative;
+  display: inline-block;
+}
+
+.name::after {
+  content: "";
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff2c2c 0%, transparent 100%);
+  border-radius: 2px;
+  opacity: 0.4;
+}
+
+/* Tagline */
+.hero-tagline {
+  margin-top: 32px;
+  padding-left: 4px;
+}
+
+.hero-tagline p {
+  font-size: 24px;
+  color: #666;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  margin: 0;
+  position: relative;
+  display: inline-block;
+}
+
+.hero-tagline p::before {
+  content: "";
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 2px;
+  background: #ff2c2c;
+  border-radius: 2px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hero {
+    padding: 80px 60px;
+  }
+
+  .hero h1 {
+    font-size: 60px;
+  }
+
+  .hello,
+  .name {
+    font-size: 68px;
+  }
+
+  .hero-tagline p {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 40px;
+  }
+
+  .deco-lines.top-right {
+    top: 40px;
+    right: 40px;
+  }
+
+  .deco-circle.top-left {
+    top: 50px;
+    left: 40px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  .hello,
+  .name {
+    font-size: 54px;
+  }
+
+  .hero-tagline p {
+    font-size: 18px;
+  }
+
+  .hero-gradient {
+    width: 400px;
+    height: 400px;
+    bottom: -150px;
+    right: -150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 40px 24px;
+  }
+
+  .deco-lines.top-right {
+    top: 30px;
+    right: 24px;
+  }
+
+  .deco-lines.top-right span {
+    height: 36px;
+  }
+
+  .deco-circle.top-left {
+    top: 40px;
+    left: 24px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hello,
+  .name {
+    font-size: 42px;
+  }
+
+  .hero-tagline p {
+    font-size: 16px;
+  }
+}

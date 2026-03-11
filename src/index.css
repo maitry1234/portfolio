@@ -1,0 +1,27 @@
+/* src/index.css */
+@import "tailwindcss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f9fafb; /* light grayish like many portfolios */
+  color: #111827;
+  font-family: "Montserrat", sans-serif;
+}
+.handwritten {
+  font-family: "Patrick Hand", cursive;
+}
+.stack {
+  background: black;
+}
+
+/* Optional smooth scroll if you add links later */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100vw;
+}

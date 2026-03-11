@@ -1,0 +1,11 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  theme: {
+    extend: {
+      // You can add your red color here later, e.g.
+      // colors: { accent: '#FF0000' },  // or exact hex from Figma
+    },
+  },
+  plugins: [],
+};

@@ -1,0 +1,378 @@
+.projects {
+  position: relative;
+  background: #000;
+  padding: 100px;
+  border-radius: 40px;
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  z-index: 3;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+.projects-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+/* Animated gradient background */
+.projects-gradient {
+  position: absolute;
+  top: -200px;
+  left: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 44, 44, 0.12) 0%,
+    rgba(255, 44, 44, 0.04) 50%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  animation: floatProjects 10s ease-in-out infinite;
+}
+
+@keyframes floatProjects {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(80px, 80px) scale(1.15);
+  }
+}
+
+/* Section Header */
+.projects-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 48px;
+  position: relative;
+}
+
+.projects-title {
+  font-size: 56px;
+  font-weight: 400;
+  color: white;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.title-normal {
+  font-weight: 400;
+  color: white;
+}
+
+.title-cursive {
+  font-family: "Caveat", cursive;
+  color: #ff3b3b;
+  font-size: 64px;
+  margin-left: 12px;
+  font-weight: 700;
+}
+
+/* Circle decoration - top right */
+.circle-decoration {
+  width: 80px;
+  height: 80px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+}
+
+.circle-decoration:hover {
+  border-color: rgba(255, 59, 59, 0.4);
+  transform: rotate(90deg);
+}
+
+.circle-inner {
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  transition: all 0.4s ease;
+}
+
+.circle-decoration:hover .circle-inner {
+  transform: scale(1.3);
+  background-color: #ff3b3b;
+}
+
+@keyframes pulse1 {
+  0%,
+  100% {
+    opacity: 1;
+    transform: rotate(20deg) scaleY(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: rotate(20deg) scaleY(0.85);
+  }
+}
+
+@keyframes pulse2 {
+  0%,
+  100% {
+    opacity: 1;
+    transform: rotate(-20deg) scaleY(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: rotate(-20deg) scaleY(0.85);
+  }
+}
+
+/* Projects Grid */
+.projects-grid {
+  display: flex;
+  gap: 60px;
+}
+
+.project-card {
+  flex: 1;
+  max-width: 630px;
+  height: 520px;
+
+  background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 50%, #0a0a0a 100%);
+
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  overflow: hidden;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 59, 59, 0.05) 0%,
+    transparent 50%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.project-header {
+  padding: 32px 36px;
+  font-size: 22px;
+  font-weight: 300;
+  color: white;
+  letter-spacing: 0.5px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+}
+
+.mockup-container {
+  position: relative;
+  height: calc(100% - 88px);
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mockup-plate {
+  width: 100%;
+  height: 100%;
+
+  background: #ffffff;
+  border-radius: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.3),
+    0 2px 8px rgba(0, 0, 0, 0.2);
+
+  overflow: hidden;
+  padding: 12px;
+  transition: all 0.4s ease;
+}
+
+.project-card:hover .mockup-plate {
+  transform: scale(1.02);
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.4),
+    0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.mockup-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .mockup-image {
+  transform: scale(1.05);
+}
+
+.arrow-circle {
+  position: absolute;
+  right: 20px;
+  bottom: 50px;
+
+  width: 90px;
+  height: 90px;
+
+  background: #1a1a1a;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.6),
+    0 6px 16px rgba(0, 0, 0, 0.4);
+
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  z-index: 10;
+}
+
+.arrow-circle:hover {
+  transform: scale(1.15) rotate(45deg);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.arrow-circle svg {
+  transform: translateX(2px) translateY(-2px);
+  transition: transform 0.4s ease;
+}
+
+.arrow-circle:hover svg {
+  transform: translateX(2px) translateY(-2px) rotate(-45deg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .projects {
+    padding: 80px 60px;
+  }
+
+  .projects-title {
+    font-size: 48px;
+  }
+
+  .title-cursive {
+    font-size: 56px;
+  }
+
+  .projects-grid {
+    gap: 40px;
+  }
+
+  .project-card {
+    max-width: 580px;
+  }
+}
+
+@media (max-width: 900px) {
+  .projects {
+    padding: 60px 40px;
+  }
+
+  .projects-title {
+    font-size: 40px;
+  }
+
+  .title-cursive {
+    font-size: 48px;
+  }
+
+  .projects-grid {
+    flex-direction: column;
+    gap: 80px;
+  }
+
+  .project-card {
+    max-width: 100%;
+  }
+
+  .circle-decoration {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 600px) {
+  .projects {
+    padding: 40px 24px;
+  }
+
+  .projects-title {
+    font-size: 32px;
+  }
+
+  .title-cursive {
+    font-size: 40px;
+    margin-left: 8px;
+  }
+
+  .project-card {
+    height: 460px;
+  }
+
+  .mockup-plate {
+    height: 100%;
+  }
+
+  .arrow-circle {
+    width: 70px;
+    height: 70px;
+    right: 16px;
+    bottom: 40px;
+  }
+
+  .arrow-circle svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .decorative-lines span {
+    height: 36px;
+  }
+
+  .projects-gradient {
+    width: 400px;
+    height: 400px;
+    top: -150px;
+    left: -150px;
+  }
+}
+.project-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
