@@ -36,34 +36,42 @@ export default function Projects() {
 }
 
 function ProjectCard({ title, image, url }) {
-  return (
-    <a
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="project-link"
-    >
-      <div className="project-card">
-        <div className="project-header">{title}</div>
+  const content = (
+    <div className="project-card">
+      <div className="project-header">{title}</div>
 
-        <div className="mockup-container">
-          <div className="mockup-plate">
-            <img src={image} alt={title} className="mockup-image" />
-          </div>
+      <div className="mockup-container">
+        <div className="mockup-plate">
+          <img src={image} alt={title} className="mockup-image" />
+        </div>
 
-          <div className="arrow-circle">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-              <path
-                d="M10 30L30 10M30 10H15M30 10V25"
-                stroke="white"
-                strokeWidth="3"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </div>
+        <div className="arrow-circle">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <path
+              d="M10 30L30 10M30 10H15M30 10V25"
+              stroke="white"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
         </div>
       </div>
-    </a>
+    </div>
   );
+
+  if (url) {
+    return (
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="project-link"
+      >
+        {content}
+      </a>
+    );
+  }
+
+  return <div className="project-link">{content}</div>;
 }
