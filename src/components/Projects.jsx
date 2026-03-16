@@ -5,20 +5,16 @@ export default function Projects() {
   return (
     <section className="projects">
       <div className="projects-container">
-        {/* Section Header */}
         <div className="projects-header">
           <h2 className="projects-title">
-            <span className="title-normal">My</span>{" "}
+            <span className="title-normal">My</span>
             <span className="title-cursive">Projects</span>
           </h2>
-
-          {/* Top right circle decoration */}
           <div className="circle-decoration">
             <div className="circle-inner"></div>
           </div>
         </div>
 
-        {/* Projects Grid */}
         <div className="projects-grid">
           <ProjectCard
             title="Mobile UI Design"
@@ -29,7 +25,6 @@ export default function Projects() {
         </div>
       </div>
 
-      {/* Animated gradient background */}
       <div className="projects-gradient"></div>
     </section>
   );
@@ -38,7 +33,9 @@ export default function Projects() {
 function ProjectCard({ title, image, url }) {
   const content = (
     <div className="project-card">
-      <div className="project-header">{title}</div>
+      <div className="project-header">
+        <span className="project-header-title">{title}</span>
+      </div>
 
       <div className="mockup-container">
         <div className="mockup-plate">
@@ -46,7 +43,7 @@ function ProjectCard({ title, image, url }) {
         </div>
 
         <div className="arrow-circle">
-          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <svg width="20" height="20" viewBox="0 0 40 40" fill="none">
             <path
               d="M10 30L30 10M30 10H15M30 10V25"
               stroke="white"

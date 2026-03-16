@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap");
 
+/* ── Desktop (unchanged) ── */
 .hero {
   position: relative;
   padding: 100px;
@@ -8,59 +9,14 @@
   position: sticky;
   top: 0;
   min-height: 100vh;
+  min-height: 100dvh;
   z-index: 1;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   overflow: hidden;
 }
 
-/* Decorative elements */
-.hero-decorations {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-/* Top right decorative lines */
-.deco-lines.top-right {
-  position: absolute;
-  top: 60px;
-  right: 80px;
-  display: flex;
-  gap: 4px;
-}
-
-.deco-lines.top-right span {
-  display: block;
-  width: 3px;
-  height: 50px;
-  background: #ff2c2c;
-  border-radius: 2px;
-}
-
-.deco-lines.top-right span:first-child {
-  transform: rotate(20deg);
-}
-
-.deco-lines.top-right span:last-child {
-  transform: rotate(-20deg);
-}
-
-/* Top left decorative circle */
-.deco-circle.top-left {
-  position: absolute;
-  top: 80px;
-  left: 80px;
-  width: 70px;
-  height: 70px;
-  border: 2px solid #e5e5e5;
-  border-radius: 50%;
-}
-
-/* Animated gradient background */
 .hero-gradient {
   position: absolute;
   bottom: -200px;
@@ -87,7 +43,6 @@
   }
 }
 
-/* Main content */
 .hero-content {
   position: relative;
   z-index: 2;
@@ -136,7 +91,6 @@
   opacity: 0.4;
 }
 
-/* Tagline */
 .hero-tagline {
   margin-top: 32px;
   padding-left: 4px;
@@ -164,95 +118,157 @@
   border-radius: 2px;
 }
 
-/* Responsive Design */
+/* Mobile-only — hidden on desktop */
+.hero-badge {
+  display: none;
+}
+.hero-scroll-hint {
+  display: none;
+}
+
+/* ── Tablet ── */
 @media (max-width: 1024px) {
   .hero {
     padding: 80px 60px;
   }
-
   .hero h1 {
     font-size: 60px;
   }
-
   .hello,
   .name {
     font-size: 68px;
   }
-
   .hero-tagline p {
     font-size: 20px;
   }
 }
 
+/* ── Mobile ── */
 @media (max-width: 768px) {
   .hero {
-    padding: 60px 40px;
+    padding: 48px 32px;
+    align-items: center;
+    justify-content: flex-start;
   }
 
-  .deco-lines.top-right {
-    top: 40px;
-    right: 40px;
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+    padding-bottom: 16px;
   }
 
-  .deco-circle.top-left {
-    top: 50px;
-    left: 40px;
-    width: 50px;
-    height: 50px;
+  .hello {
+    font-size: 56px;
+    animation: none;
+  }
+
+  .name {
+    font-size: 50px;
   }
 
   .hero h1 {
-    font-size: 48px;
+    font-size: 42px;
+    margin-bottom: 0;
+    line-height: 1.1;
   }
 
-  .hello,
-  .name {
-    font-size: 54px;
+  .hero-tagline {
+    margin-top: 12px;
+    padding-left: 0;
   }
 
   .hero-tagline p {
-    font-size: 18px;
+    font-size: 15px;
+    color: #888;
+    padding-left: 18px;
+  }
+
+  .hero-tagline p::before {
+    left: 0;
+  }
+
+  /* Pulsing badge */
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 28px;
+    padding: 9px 16px;
+    background: rgba(255, 44, 44, 0.05);
+    border: 1px solid rgba(255, 44, 44, 0.18);
+    border-radius: 100px;
+  }
+
+  .hero-badge-dot {
+    width: 7px;
+    height: 7px;
+    background: #ff2c2c;
+    border-radius: 50%;
+    animation: blink 2s ease-in-out infinite;
+  }
+
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.25;
+    }
+  }
+
+  .hero-badge-text {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #ff2c2c;
+    font-weight: 600;
+  }
+
+  /* Scroll hint */
+  .hero-scroll-hint {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 48px;
+    color: #ccc;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .hero-scroll-hint::before {
+    content: "";
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: #ddd;
+    flex-shrink: 0;
   }
 
   .hero-gradient {
-    width: 400px;
-    height: 400px;
-    bottom: -150px;
-    right: -150px;
+    width: 350px;
+    height: 350px;
+    bottom: -80px;
+    right: -80px;
   }
 }
 
 @media (max-width: 480px) {
   .hero {
-    padding: 40px 24px;
+    padding: 36px 24px;
   }
 
-  .deco-lines.top-right {
-    top: 30px;
-    right: 24px;
+  .hello {
+    font-size: 48px;
   }
-
-  .deco-lines.top-right span {
-    height: 36px;
-  }
-
-  .deco-circle.top-left {
-    top: 40px;
-    left: 24px;
-    width: 40px;
-    height: 40px;
-  }
-
-  .hero h1 {
-    font-size: 36px;
-  }
-
-  .hello,
   .name {
     font-size: 42px;
   }
-
+  .hero h1 {
+    font-size: 36px;
+  }
   .hero-tagline p {
-    font-size: 16px;
+    font-size: 14px;
   }
 }

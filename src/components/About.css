@@ -6,13 +6,14 @@
   border-radius: 40px;
   padding: 40px 20px;
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: sticky;
   top: 0;
   z-index: 2;
-  overflow: hidden; /* Add this to clip overflow and respect border-radius */
+  overflow: hidden;
 }
 
 .about-content {
@@ -44,7 +45,44 @@
   display: none;
 }
 
-/* Tablet - 768px and up */
+/* ── Mobile portrait layout ── */
+@media (max-width: 767px) {
+  .about {
+    padding: 36px 24px;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .about-content {
+    width: 65%;
+  }
+
+  .about h2 {
+    font-size: 32px;
+    margin-bottom: 14px;
+  }
+
+  .about p {
+    font-size: 14px;
+    line-height: 1.65;
+    margin-bottom: 12px;
+    color: #444;
+  }
+
+  /* Same as desktop — absolute bottom right, just shorter */
+  .about-profile {
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 260px;
+    z-index: 3;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.12));
+    animation: wave 3s ease-in-out infinite;
+  }
+}
+
+/* ── Tablet ── */
 @media (min-width: 768px) {
   .about {
     padding: 60px 40px;
@@ -74,7 +112,7 @@
   }
 }
 
-/* Desktop - 1024px and up */
+/* ── Desktop ── */
 @media (min-width: 1024px) {
   .about {
     padding: 80px 80px;
@@ -98,14 +136,14 @@
   }
 }
 
-/* Large Desktop - 1440px and up */
+/* ── Large Desktop ── */
 @media (min-width: 1440px) {
   .about {
     padding: 80px 100px;
   }
 
   .about-profile {
-    right: -5px; /* Changed from -5px to prevent overflow */
+    right: -5px;
     height: 550px;
   }
 }

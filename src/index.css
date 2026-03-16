@@ -40,3 +40,33 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+.stack > * {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* ── Sticky stack wrappers ── */
+
+/* Default: 150vh = section visible for full viewport + 50vh linger */
+.stack-scene {
+  height: 150vh;
+  position: relative;
+}
+
+/* Tall sections (Projects, Skills) have more content — give more linger time */
+.stack-scene--tall {
+  height: 200vh;
+}
+
+/* Last section — no extra height needed */
+.stack-scene:last-child {
+  height: 100vh;
+  height: 100dvh;
+}
+
+/* Section sticks inside its wrapper */
+.stack-scene > * {
+  position: sticky !important;
+  top: 0;
+}
