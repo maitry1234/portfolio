@@ -29,14 +29,12 @@ const Skills = () => {
           <span className="title-normal">My</span>{" "}
           <span className="title-cursive">Skills</span>
         </h2>
-
         <div className="skills-grid">
           {skillCategories.map((category) => (
             <SkillCard key={category.id} category={category} />
           ))}
         </div>
       </div>
-
       <div className="skills-gradient"></div>
     </section>
   );
@@ -45,17 +43,32 @@ const Skills = () => {
 function SkillCard({ category }) {
   return (
     <div className="skill-card">
+      {/* Desktop: header on top */}
       <div className="skill-header">
         <h3>{category.title}</h3>
       </div>
 
+      {/* Icon — used on both desktop and mobile */}
       <div className="skill-icon-container">
         {category.icon === "figma" && <FigmaIcon />}
         {category.icon === "code" && <CodeIcon />}
         {category.icon === "tools" && <ToolsIcon />}
       </div>
 
-      <div className="skill-list">
+      {/* Mobile: title + tags side by side with icon */}
+      <div className="skill-list-wrapper">
+        <span className="skill-card-mobile-title">{category.title}</span>
+        <div className="skill-list">
+          {category.skills.map((skill, index) => (
+            <span key={index} className="skill-tag">
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Desktop: tags at bottom of card */}
+      <div className="skill-list skill-list-desktop">
         {category.skills.map((skill, index) => (
           <span key={index} className="skill-tag">
             {skill}
@@ -66,106 +79,133 @@ function SkillCard({ category }) {
   );
 }
 
-// Real Figma logo mark
+/* Figma — official logo mark */
 function FigmaIcon() {
   return (
-    <svg viewBox="0 0 38 57" className="skill-icon" fill="none">
+    <svg
+      viewBox="0 0 38 57"
+      className="skill-icon"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
-        d="M19 28.5C19 24.91 21.91 22 25.5 22C29.09 22 32 24.91 32 28.5C32 32.09 29.09 35 25.5 35C21.91 35 19 32.09 19 28.5Z"
-        fill="currentColor"
+        d="M19 28.5C19 24.358 22.358 21 26.5 21C30.642 21 34 24.358 34 28.5C34 32.642 30.642 36 26.5 36C22.358 36 19 32.642 19 28.5Z"
+        fill="#1ABCFE"
       />
       <path
-        d="M6 28.5C6 24.91 8.91 22 12.5 22H19V35H12.5C8.91 35 6 32.09 6 28.5Z"
-        fill="currentColor"
-        opacity="0.7"
+        d="M4 43.5C4 39.358 7.358 36 11.5 36H19V43.5C19 47.642 15.642 51 11.5 51C7.358 51 4 47.642 4 43.5Z"
+        fill="#0ACF83"
       />
       <path
-        d="M6 15.5C6 11.91 8.91 9 12.5 9H19V22H12.5C8.91 22 6 19.09 6 15.5Z"
-        fill="currentColor"
-        opacity="0.5"
+        d="M19 6V21H26.5C30.642 21 34 17.642 34 13.5C34 9.358 30.642 6 26.5 6H19Z"
+        fill="#FF7262"
       />
       <path
-        d="M19 9H25.5C29.09 9 32 11.91 32 15.5C32 19.09 29.09 22 25.5 22H19V9Z"
-        fill="currentColor"
-        opacity="0.85"
+        d="M4 13.5C4 17.642 7.358 21 11.5 21H19V6H11.5C7.358 6 4 9.358 4 13.5Z"
+        fill="#F24E1E"
       />
       <path
-        d="M6 41.5C6 37.91 8.91 35 12.5 35H19V41.5C19 45.09 16.09 48 12.5 48C8.91 48 6 45.09 6 41.5Z"
-        fill="currentColor"
-        opacity="0.6"
+        d="M4 28.5C4 32.642 7.358 36 11.5 36H19V21H11.5C7.358 21 4 24.358 4 28.5Z"
+        fill="#A259FF"
       />
     </svg>
   );
 }
 
-// Clean code brackets icon
+/* React logo */
 function CodeIcon() {
   return (
-    <svg viewBox="0 0 80 80" className="skill-icon" fill="none">
-      <path
-        d="M28 20L8 40L28 60"
-        stroke="currentColor"
-        strokeWidth="5.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+    <svg
+      viewBox="0 0 100 100"
+      className="skill-icon"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      {/* Nucleus */}
+      <circle cx="50" cy="50" r="6" fill="#61DAFB" />
+      {/* Orbit 1 */}
+      <ellipse
+        cx="50"
+        cy="50"
+        rx="40"
+        ry="15"
+        stroke="#61DAFB"
+        strokeWidth="3"
+        fill="none"
       />
-      <path
-        d="M52 20L72 40L52 60"
-        stroke="currentColor"
-        strokeWidth="5.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+      {/* Orbit 2 */}
+      <ellipse
+        cx="50"
+        cy="50"
+        rx="40"
+        ry="15"
+        stroke="#61DAFB"
+        strokeWidth="3"
+        fill="none"
+        transform="rotate(60 50 50)"
       />
-      <path
-        d="M44 14L36 66"
-        stroke="currentColor"
-        strokeWidth="4.5"
-        strokeLinecap="round"
-        opacity="0.55"
+      {/* Orbit 3 */}
+      <ellipse
+        cx="50"
+        cy="50"
+        rx="40"
+        ry="15"
+        stroke="#61DAFB"
+        strokeWidth="3"
+        fill="none"
+        transform="rotate(120 50 50)"
       />
     </svg>
   );
 }
 
-// Clean wrench + git branch icon
+/* Git branch icon */
 function ToolsIcon() {
   return (
-    <svg viewBox="0 0 80 80" className="skill-icon" fill="none">
-      {/* Wrench */}
-      <path
-        d="M20 18C16 22 16 30 20 34L44 58C46 60 50 60 52 58C54 56 54 52 52 50L28 26C32 22 32 14 28 10C24 6 16 8 14 12L22 20L18 24L10 16C8 20 10 28 14 30"
-        stroke="currentColor"
-        strokeWidth="4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        opacity="0.85"
-      />
-      {/* Git dot top */}
-      <circle cx="62" cy="20" r="5" fill="currentColor" opacity="0.6" />
-      {/* Git dot mid */}
-      <circle cx="62" cy="40" r="5" fill="currentColor" opacity="0.6" />
-      {/* Git dot bottom */}
-      <circle cx="62" cy="60" r="5" fill="currentColor" opacity="0.6" />
-      {/* Git line */}
+    <svg
+      viewBox="0 0 100 100"
+      className="skill-icon"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      {/* Main line */}
       <line
-        x1="62"
-        y1="25"
-        x2="62"
-        y2="55"
-        stroke="currentColor"
-        strokeWidth="3"
+        x1="30"
+        y1="20"
+        x2="30"
+        y2="80"
+        stroke="#F05133"
+        strokeWidth="5"
         strokeLinecap="round"
-        opacity="0.4"
       />
-      {/* Branch curve */}
+      {/* Branch line */}
+      <line
+        x1="70"
+        y1="38"
+        x2="70"
+        y2="80"
+        stroke="#F05133"
+        strokeWidth="5"
+        strokeLinecap="round"
+      />
+      {/* Curve connector */}
       <path
-        d="M62 40 Q48 40 48 28 Q48 20 56 20"
-        stroke="currentColor"
-        strokeWidth="3"
+        d="M30 30 Q30 20 50 20 Q70 20 70 38"
+        stroke="#F05133"
+        strokeWidth="5"
         strokeLinecap="round"
         fill="none"
-        opacity="0.5"
       />
+      {/* Node circles */}
+      <circle cx="30" cy="20" r="7" fill="#F05133" />
+      <circle cx="30" cy="80" r="7" fill="#F05133" />
+      <circle cx="70" cy="80" r="7" fill="#F05133" />
+      <circle cx="70" cy="38" r="7" fill="#F05133" />
+      {/* Inner whites */}
+      <circle cx="30" cy="20" r="3" fill="white" />
+      <circle cx="30" cy="80" r="3" fill="white" />
+      <circle cx="70" cy="80" r="3" fill="white" />
+      <circle cx="70" cy="38" r="3" fill="white" />
     </svg>
   );
 }

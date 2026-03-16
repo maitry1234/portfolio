@@ -2,7 +2,7 @@
   position: sticky;
   top: 0;
   background: #000;
-  padding: 120px 100px;
+  padding: 80px 60px;
   border-radius: 40px;
   min-height: 100vh;
   z-index: 3;
@@ -12,6 +12,7 @@
   justify-content: center;
 
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .projects-container {
@@ -57,7 +58,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 56px;
+  margin-bottom: 40px;
   position: relative;
 }
 
@@ -132,16 +133,25 @@
 /* Projects Grid */
 .projects-grid {
   display: flex;
-  gap: 60px;
+  gap: 32px;
   justify-content: center;
   align-items: stretch;
 }
 
-.project-card {
+/* Link wrapper */
+.project-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
   flex: 1;
-  max-width: 630px;
-  height: 520px;
-  flex-shrink: 0;
+  min-width: 0;
+  max-width: 560px;
+}
+
+/* Project Card — no fixed height, grows with content */
+.project-card {
+  width: 100%;
+  height: 100%;
 
   background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 50%, #0a0a0a 100%);
 
@@ -184,8 +194,8 @@
 }
 
 .project-header {
-  padding: 32px 36px;
-  font-size: 22px;
+  padding: 24px 28px;
+  font-size: 20px;
   font-weight: 300;
   color: white;
   letter-spacing: 0.5px;
@@ -205,8 +215,7 @@
 
 .mockup-container {
   position: relative;
-  height: calc(100% - 88px);
-  padding: 28px 32px;
+  padding: 24px 28px 28px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -214,10 +223,11 @@
 
 .mockup-plate {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 16 / 10;
+  max-height: 320px;
 
   background: #ffffff;
-  border-radius: 20px;
+  border-radius: 16px;
 
   display: flex;
   align-items: center;
@@ -254,11 +264,11 @@
 
 .arrow-circle {
   position: absolute;
-  right: 20px;
-  bottom: 50px;
+  right: 16px;
+  bottom: 16px;
 
-  width: 90px;
-  height: 90px;
+  width: 72px;
+  height: 72px;
 
   background: #1a1a1a;
   border-radius: 50%;
@@ -293,10 +303,11 @@
   transform: rotate(-45deg);
 }
 
-/* Responsive adjustments */
+/* ── Responsive ── */
+
 @media (max-width: 1200px) {
   .projects {
-    padding: 80px 60px;
+    padding: 60px 48px;
   }
 
   .projects-title {
@@ -308,94 +319,150 @@
   }
 
   .projects-grid {
-    gap: 40px;
-  }
-
-  .project-card {
-    max-width: 580px;
+    gap: 28px;
   }
 }
 
 @media (max-width: 900px) {
   .projects {
-    padding: 60px 40px;
+    padding: 28px 20px;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow: visible;
+    align-items: flex-start;
+    justify-content: flex-start;
   }
 
-  .projects-title {
-    font-size: 40px;
-  }
-
-  .title-cursive {
-    font-size: 48px;
-  }
-
-  .projects-grid {
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-  }
-
-  .project-card {
-    max-width: 100%;
-    width: 100%;
-    flex-shrink: unset;
-  }
-
-  .circle-decoration {
-    width: 60px;
-    height: 60px;
-  }
-}
-
-@media (max-width: 600px) {
-  .projects {
-    padding: 40px 24px;
+  .projects-header {
+    margin-bottom: 20px;
   }
 
   .projects-title {
     font-size: 32px;
+    display: flex;
+    align-items: center;
+    gap: 0;
   }
 
+  .title-normal {
+    font-size: 32px;
+  }
+
+  /* Stop the shake, fix size, remove gap */
   .title-cursive {
-    font-size: 40px;
+    font-size: 32px !important;
     margin-left: 8px;
+    animation: none !important;
+  }
+
+  .circle-decoration {
+    width: 40px;
+    height: 40px;
+  }
+
+  .circle-inner {
+    width: 7px;
+    height: 7px;
+  }
+
+  .projects-grid {
+    flex-direction: column;
+    gap: 14px;
+    align-items: stretch;
+  }
+
+  .project-link {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    flex: unset;
+    min-width: 0;
   }
 
   .project-card {
-    height: 460px;
+    border-radius: 20px;
+  }
+
+  .project-header {
+    padding: 16px 20px;
+    font-size: 16px;
+  }
+
+  .mockup-container {
+    padding: 14px 16px 16px;
+  }
+
+  .mockup-plate {
+    aspect-ratio: 16 / 9;
+    max-height: 180px;
+    border-radius: 14px;
   }
 
   .arrow-circle {
-    width: 70px;
-    height: 70px;
-    right: 16px;
-    bottom: 40px;
+    width: 44px;
+    height: 44px;
+    right: 12px;
+    bottom: 12px;
   }
 
   .arrow-circle svg {
-    width: 32px;
-    height: 32px;
+    width: 20px;
+    height: 20px;
   }
 
   .projects-gradient {
-    width: 400px;
-    height: 400px;
-    top: -150px;
-    left: -150px;
+    width: 250px;
+    height: 250px;
+    top: -80px;
+    left: -80px;
   }
 }
 
-.project-link {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  flex: 1;
-  max-width: 630px;
-}
+@media (max-width: 480px) {
+  .projects {
+    padding: 24px 16px;
+  }
 
-@media (max-width: 900px) {
+  .projects-title {
+    font-size: 28px;
+  }
+
+  .title-normal {
+    font-size: 28px;
+  }
+
+  .title-cursive {
+    font-size: 28px !important;
+    margin-left: 6px;
+    animation: none !important;
+  }
+
+  .projects-grid {
+    gap: 12px;
+  }
+
   .project-link {
     max-width: 100%;
-    width: 100%;
+  }
+
+  .mockup-plate {
+    max-height: 160px;
+  }
+
+  .project-header {
+    padding: 14px 18px;
+    font-size: 15px;
+  }
+
+  .arrow-circle {
+    width: 40px;
+    height: 40px;
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .arrow-circle svg {
+    width: 18px;
+    height: 18px;
   }
 }
