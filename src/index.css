@@ -60,9 +60,11 @@ body {
 }
 
 /* Last section — no extra height needed */
+/* Last section — no extra height needed */
 .stack-scene:last-child {
   height: 100vh;
   height: 100dvh;
+  min-height: unset; /* ← add this */
 }
 
 /* Section sticks inside its wrapper */

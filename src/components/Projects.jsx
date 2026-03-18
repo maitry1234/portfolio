@@ -1,4 +1,5 @@
 import uiStack from "../assets/ui-stack.png";
+import casestudy from "../assets/casestudy.png";
 import "./Projects.css";
 
 export default function Projects() {
@@ -21,7 +22,11 @@ export default function Projects() {
             image={uiStack}
             url="https://www.figma.com/proto/1TYU0lMI2TAD86pkeufURQ/UIUX?node-id=1221-28&t=U2u1sCXTYqE2I9hU-0&scaling=scale-down&content-scaling=fixed&page-id=1060%3A2&starting-point-node-id=1221%3A28&show-proto-sidebar=1"
           />
-          <ProjectCard title="Ecommerce Website" image={uiStack} />
+          <ProjectCard
+            title="Case Study"
+            image={casestudy}
+            url="https://www.figma.com/proto/1TYU0lMI2TAD86pkeufURQ/UIUX?node-id=1436-249&t=a2lBSgFBQKmx9Sgs-0&scaling=min-zoom&content-scaling=fixed&page-id=242%3A198"
+          />
         </div>
       </div>
 
@@ -41,7 +46,6 @@ function ProjectCard({ title, image, url }) {
         <div className="mockup-plate">
           <img src={image} alt={title} className="mockup-image" />
         </div>
-
         <div className="arrow-circle">
           <svg width="20" height="20" viewBox="0 0 40 40" fill="none">
             <path
