@@ -1,6 +1,17 @@
+import { useState } from "react";
 import "./Contact.css";
 
 export default function Contact() {
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = (e) => {
+    e.preventDefault();
+    navigator.clipboard.writeText("maitrybajra123@gmail.com").then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
   return (
     <section className="contact">
       <div className="contact-noise" />
@@ -14,9 +25,14 @@ export default function Contact() {
           <span className="ct-cursive">connect</span>
         </h2>
 
+        <p className="contact-subtitle">
+          Have a project in mind or just want to say hi? My inbox is always
+          open.
+        </p>
+
         <div className="contact-links">
-          {/* Gmail */}
-          <a href="mailto:maitrybajra123@gmail.com" className="contact-link">
+          {/* Gmail — click to copy */}
+          <a href="#" className="contact-link" onClick={copyEmail}>
             <span className="contact-link-icon">
               <svg
                 viewBox="0 0 24 24"
@@ -31,22 +47,40 @@ export default function Contact() {
               </svg>
             </span>
             <span className="contact-link-text">
-              <span className="contact-link-platform">Email</span>
+              <span className="contact-link-platform">
+                Email — click to copy
+              </span>
               <span className="contact-link-value">
                 maitrybajra123@gmail.com
               </span>
             </span>
-            <svg
-              className="contact-link-arrow"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M7 17L17 7M17 7H7M17 7v10" />
-            </svg>
+            {/* Copy / check icon */}
+            {copied ? (
+              <svg
+                className="contact-link-arrow copied"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M5 13l4 4L19 7" />
+              </svg>
+            ) : (
+              <svg
+                className="contact-link-arrow"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <rect x="9" y="9" width="13" height="13" rx="2" />
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+              </svg>
+            )}
           </a>
 
           {/* LinkedIn */}
