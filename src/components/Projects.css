@@ -473,3 +473,135 @@
   transform: scale(1.15); /* ← add this */
   transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+/* ── Header right group ── */
+.projects-header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ── UI Recreation pill ── */
+.ui-rec-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease,
+    color 0.3s ease,
+    box-shadow 0.35s ease,
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.ui-rec-pill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 100px;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 59, 59, 0.15),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.ui-rec-pill:hover {
+  background: rgba(255, 59, 59, 0.08);
+  border-color: rgba(255, 59, 59, 0.35);
+  color: #ffffff;
+  box-shadow:
+    0 0 20px rgba(255, 59, 59, 0.15),
+    0 4px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.ui-rec-pill:hover::before {
+  opacity: 1;
+}
+
+/* Pulsing dot */
+.ui-rec-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ff3b3b;
+  flex-shrink: 0;
+  box-shadow: 0 0 6px rgba(255, 59, 59, 0.8);
+  animation: dotPulse 2s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.75);
+  }
+}
+
+.ui-rec-text {
+  position: relative;
+  z-index: 1;
+}
+
+.ui-rec-arrow {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: rgba(255, 59, 59, 0.6);
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    color 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.ui-rec-pill:hover .ui-rec-arrow {
+  transform: translate(2px, -2px);
+  color: #ff3b3b;
+}
+
+/* ── Mobile ── */
+@media (max-width: 900px) {
+  .projects-header-right {
+    gap: 10px;
+  }
+
+  .ui-rec-pill {
+    padding: 7px 13px;
+    font-size: 11px;
+    gap: 6px;
+  }
+
+  .ui-rec-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .ui-rec-arrow {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ui-rec-pill {
+    padding: 7px 10px;
+  }
+}

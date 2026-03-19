@@ -11,8 +11,32 @@ export default function Projects() {
             <span className="title-normal">My</span>
             <span className="title-cursive">Projects</span>
           </h2>
-          <div className="circle-decoration">
-            <div className="circle-inner"></div>
+
+          <div className="projects-header-right">
+            <a
+              href="https://www.figma.com/proto/1TYU0lMI2TAD86pkeufURQ/UIUX?node-id=1539-317&t=8woFhXOYpgeO6Tx2-0&scaling=min-zoom&content-scaling=fixed&page-id=1537%3A359"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ui-rec-pill"
+            >
+              <span className="ui-rec-dot" />
+              <span className="ui-rec-text">UI Clones</span>
+              <svg
+                className="ui-rec-arrow"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M7 17L17 7M17 7H7M17 7v10" />
+              </svg>
+            </a>
+
+            <div className="circle-decoration">
+              <div className="circle-inner"></div>
+            </div>
           </div>
         </div>
 

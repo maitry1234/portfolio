@@ -25,11 +25,6 @@ export default function Contact() {
           <span className="ct-cursive">connect</span>
         </h2>
 
-        <p className="contact-subtitle">
-          Have a project in mind or just want to say hi? My inbox is always
-          open.
-        </p>
-
         <div className="contact-links">
           {/* Gmail — click to copy */}
           <a href="#" className="contact-link" onClick={copyEmail}>
